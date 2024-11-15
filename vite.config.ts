@@ -42,5 +42,9 @@ export default defineConfig(({ mode }) => {
     optimizeDeps: {
       exclude: ["@electric-sql/pglite"],
     },
+
+    build: {
+      target: 'esnext',
+    },
   }
 })
