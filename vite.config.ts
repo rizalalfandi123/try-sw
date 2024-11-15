@@ -1,13 +1,14 @@
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import topLevelAwait from "vite-plugin-top-level-await";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
 
 
   return {
-    plugins: [react(), VitePWA({
+    plugins: [topLevelAwait(), react(), VitePWA({
       strategies: 'injectManifest',
       srcDir: 'src',
       filename: 'sw.ts',
@@ -37,5 +38,9 @@ export default defineConfig(({ mode }) => {
         type: 'module',
       },
     })],
+
+    optimizeDeps: {
+      exclude: ["@electric-sql/pglite"],
+    },
   }
 })
