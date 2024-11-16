@@ -28,6 +28,7 @@ export default defineConfig(() => {
 
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico,wasm}'],
+        maximumFileSizeToCacheInBytes: 12_000_000
       },
 
       devOptions: {
