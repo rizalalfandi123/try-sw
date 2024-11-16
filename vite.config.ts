@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 import topLevelAwait from "vite-plugin-top-level-await";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(() => {
 
   const config: UserConfig = {
     plugins: [topLevelAwait(), react(), VitePWA({
@@ -27,11 +27,12 @@ export default defineConfig(({ mode }) => {
       },
 
       injectManifest: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,wasm}'],
       },
 
       devOptions: {
-        enabled: mode === 'development',
+        // enabled: mode === 'development',
+        enabled: true,
         navigateFallback: 'index.html',
         suppressWarnings: true,
         type: 'module',
